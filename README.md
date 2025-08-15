@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Moments — Capture and share meaningful moments
 
-## Getting Started
+This repository contains a scalable Next.js (App Router + TypeScript) application configured for Vercel with Tailwind, shadcn/ui, Prisma + Postgres, Auth.js (email magic link), Vercel KV & Blob, Cron jobs, API routes, middleware, SEO, analytics, testing, linting, CI, and a branded landing page.
 
-First, run the development server:
+Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Node 20 (see `.nvmrc`): `nvm use`
+2. Install deps: `npm i`
+3. Copy envs: `cp .env.example .env.local` and fill values
+4. Prisma: set `DATABASE_URL`, then `npm run prisma:generate && npm run prisma:push`
+5. Dev: `npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Environment variables (.env.local)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- DATABASE_URL=
+- AUTH_SECRET=
+- EMAIL_SERVER_HOST=
+- EMAIL_SERVER_PORT=
+- EMAIL_SERVER_USER=
+- EMAIL_SERVER_PASSWORD=
+- EMAIL_FROM=no-reply@makemoments.app
+- KV_REST_API_URL=
+- KV_REST_API_TOKEN=
+- BLOB_READ_WRITE_TOKEN=
+- NEXT_PUBLIC_SITE_URL=https://makemoments.app
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deploy
 
-## Learn More
+- Vercel CLI: `vercel link` then `vercel --prod`
+- Or connect GitHub repo and configure envs in Vercel dashboard
 
-To learn more about Next.js, take a look at the following resources:
+Cron
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Defined in `vercel.json`: daily 03:00 UTC and weekly Monday 04:00 UTC
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Testing & CI
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Unit: Vitest `npm test`
+- E2E: Playwright `npm run e2e`
+- CI: see `.github/workflows/ci.yml`
