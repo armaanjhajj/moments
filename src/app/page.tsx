@@ -15,12 +15,12 @@ export default function Home() {
               <div className="bg-primary h-6 w-6 rounded-md" />
             </div>
             <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              In‑person connection, reimagined.
+              In‑person connection, not another feed.
             </h1>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Connect with people nearby in a way social feeds can’t.
-              Personality‑first, time‑bound, and designed to nudge real
-              conversations.
+              Connect people in a way a social presence can’t. Personality‑first
+              matching, mutual timed meetups, and real‑world prompts that bring
+              urgency back to forming connections.
             </p>
             <div className="mt-8 flex items-center justify-center gap-3">
               <Button asChild>
@@ -39,15 +39,15 @@ export default function Home() {
             {[
               {
                 title: 'Match on personality',
-                desc: 'Go beyond swipes. Build a public, nuanced profile.',
+                desc: 'In‑depth analysis from onboarding + socials migration.',
               },
               {
                 title: 'Mutual, timed meetups',
-                desc: 'Only facilitate when both sides are ready—at a time and place.',
+                desc: 'App suggests a window and meeting point—action over lurking.',
               },
               {
                 title: 'In‑person first',
-                desc: 'Migrate socials, reduce digital noise, and act in the real world.',
+                desc: 'Glasses, arrows, light prompts—ideas that nudge IRL moments.',
               },
             ].map((item) => (
               <Card key={item.title}>
@@ -68,14 +68,14 @@ export default function Home() {
             {[
               {
                 title: 'In‑person network',
-                desc: 'Connections are earned IRL, not farmed online.',
+                desc: 'A graph of people you actually met—captured as moments.',
               },
               {
                 title: 'Urgency, not endless scroll',
-                desc: 'Mutual windows encourage action, not lurking.',
+                desc: 'Mutual windows create reasons to act, not doomscroll.',
               },
               {
-                title: 'Not a dating app',
+                title: 'Not just dating',
                 desc: 'Infrastructure for real connections—romantic or not.',
               },
             ].map((item) => (
