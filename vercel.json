@@ -1,8 +1,6 @@
 {
-  "crons": [
-    { "path": "/api/cron/daily", "schedule": "0 3 * * *" },
-    { "path": "/api/cron/weekly-metrics", "schedule": "0 4 * * 1" }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/(.*)",
@@ -15,5 +13,8 @@
         { "key": "X-Frame-Options", "value": "DENY" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
