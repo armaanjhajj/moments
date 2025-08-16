@@ -1,0 +1,16 @@
+/* Ensure Google Fonts load properly */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+
+/* Minimal base styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
