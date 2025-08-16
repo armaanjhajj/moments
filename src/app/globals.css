@@ -9,7 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans:
-    'Roboto', 'Noto Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+    'Noto Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -141,5 +141,32 @@
 
 /* Typekit display font only for wordmark if needed */
 .wordmark {
-  font-family: 'adobe-garamond-pro', 'Adobe Garamond Pro', serif;
+  font-family:
+    var(--font-eb-garamond), 'EB Garamond', 'adobe-garamond-pro',
+    'Adobe Garamond Pro', Garamond, serif;
+  font-weight: 400;
+}
+
+/* Interactive glow effects */
+.hoverGlow {
+  transition:
+    color 200ms ease,
+    text-shadow 200ms ease,
+    transform 200ms ease;
+}
+.hoverGlow:hover {
+  color: var(--primary);
+  text-shadow:
+    0 0 8px rgba(86, 119, 140, 0.55),
+    0 0 18px rgba(138, 164, 181, 0.55);
+}
+.glowButton {
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease,
+    background-color 200ms ease;
+}
+.glowButton:hover {
+  box-shadow: 0 0 22px rgba(86, 119, 140, 0.45);
+  transform: translateY(-2px);
 }

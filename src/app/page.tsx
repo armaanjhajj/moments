@@ -86,7 +86,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 text-center">
-            <Button asChild size="lg" className="blocky">
+            <Button asChild size="lg" className="blocky glowButton">
               <Link href="/waitlist">Join the waitlist</Link>
             </Button>
           </div>
