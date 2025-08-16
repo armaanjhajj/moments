@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { kv } from '@/lib/kv';
+import { redis } from '@/lib/kv';
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
@@ -28,7 +28,7 @@ export async function middleware(req: NextRequest) {
   if (!variant) {
     try {
       variant = (
-        (await kv.get<string>('feature:hero-variant')) || 'A'
+        (await redis?.get<string>('feature:hero-variant')) || 'A'
       ).toString();
     } catch {
       variant = 'A';
