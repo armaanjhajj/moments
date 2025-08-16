@@ -5,11 +5,16 @@ export async function incrementWithLimit(
   limit: number,
   ttlSeconds: number,
 ) {
-  const count = await kv.incr(key);
-  if (count === 1) {
-    await kv.expire(key, ttlSeconds);
+  try {
+    const count = await kv.incr(key);
+    if (count === 1) {
+      await kv.expire(key, ttlSeconds);
+    }
+    return count <= limit;
+  } catch {
+    // If KV is unavailable, do not block the request.
+    return true;
   }
-  return count <= limit;
 }
 
 export { kv };
