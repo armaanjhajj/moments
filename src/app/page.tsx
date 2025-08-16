@@ -15,11 +15,12 @@ export default function Home() {
               <div className="bg-primary h-6 w-6 rounded-md" />
             </div>
             <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              Capture and share your most meaningful moments
+              In‑person connection, reimagined.
             </h1>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Moments helps you save, organize, and share the moments that
-              matter with the people who matter.
+              Connect with people nearby in a way social feeds can’t.
+              Personality‑first, time‑bound, and designed to nudge real
+              conversations.
             </p>
             <div className="mt-8 flex items-center justify-center gap-3">
               <Button asChild>
@@ -37,16 +38,16 @@ export default function Home() {
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
               {
-                title: 'Save',
-                desc: 'Quickly capture moments as they happen.',
+                title: 'Match on personality',
+                desc: 'Go beyond swipes. Build a public, nuanced profile.',
               },
               {
-                title: 'Organize',
-                desc: 'Keep moments organized and findable.',
+                title: 'Mutual, timed meetups',
+                desc: 'Only facilitate when both sides are ready—at a time and place.',
               },
               {
-                title: 'Share',
-                desc: 'Share with friends and family securely.',
+                title: 'In‑person first',
+                desc: 'Migrate socials, reduce digital noise, and act in the real world.',
               },
             ].map((item) => (
               <Card key={item.title}>
@@ -66,14 +67,17 @@ export default function Home() {
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
               {
-                title: 'Private by default',
-                desc: 'You control who sees what.',
+                title: 'In‑person network',
+                desc: 'Connections are earned IRL, not farmed online.',
               },
               {
-                title: 'Fast and reliable',
-                desc: 'Built for speed and scale.',
+                title: 'Urgency, not endless scroll',
+                desc: 'Mutual windows encourage action, not lurking.',
               },
-              { title: 'Future-proof', desc: 'Designed to evolve with you.' },
+              {
+                title: 'Not a dating app',
+                desc: 'Infrastructure for real connections—romantic or not.',
+              },
             ].map((item) => (
               <Card key={item.title}>
                 <CardHeader>

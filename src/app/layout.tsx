@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { EB_Garamond, Geist_Mono } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const ebGaramond = EB_Garamond({
+  variable: '--font-eb-garamond',
   subsets: ['latin'],
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ebGaramond.variable} ${geistMono.variable} antialiased`}
       >
         {children}
         <Toaster />

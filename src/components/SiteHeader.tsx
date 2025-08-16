@@ -8,8 +8,9 @@ export function SiteHeader() {
     <header className="bg-background/60 supports-[backdrop-filter]:bg-background/60 w-full border-b backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2">
-          <div className="bg-primary h-6 w-6 rounded-md" />
-          <span className="text-lg font-semibold tracking-tight">moments</span>
+          <span className="text-2xl font-semibold tracking-tight">
+            moments.
+          </span>
         </Link>
         <nav className="flex items-center gap-3">
           <Link
