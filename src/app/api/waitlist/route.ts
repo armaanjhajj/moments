@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
-import { incrementWithLimit, kv } from '@/lib/kv';
+import { incrementWithLimit, redis } from '@/lib/kv';
 
 const WaitlistSchema = z.object({
   email: z.string().email(),
@@ -46,7 +46,11 @@ export async function POST(req: Request) {
       create: { email, source },
     });
     // Stub: enqueue confirmation
-    await kv.set(`waitlist:confirm:${email}`, Date.now(), { ex: 60 * 60 });
+    try {
+      await redis?.set(`waitlist:confirm:${email}`, Date.now(), {
+        ex: 60 * 60,
+      });
+    } catch {}
   } catch (e) {
     return new Response(JSON.stringify({ error: 'Failed to save' }), {
       status: 500,
