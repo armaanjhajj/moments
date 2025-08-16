@@ -53,6 +53,7 @@ export default function RootLayout({
       <body
         className={`${ebGaramond.variable} ${geistMono.variable} antialiased`}
       >
+        <link rel="stylesheet" href="https://use.typekit.net/klf2aay.css" />
         {children}
         <Toaster />
         <Analytics />

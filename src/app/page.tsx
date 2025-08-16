@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -35,30 +36,59 @@ export default function Home() {
 
         <section id="how" className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-2xl font-semibold">How it works</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: 'Match on personality',
-                desc: 'In‑depth analysis from onboarding + socials migration.',
-              },
-              {
-                title: 'Mutual, timed meetups',
-                desc: 'App suggests a window and meeting point—action over lurking.',
-              },
-              {
-                title: 'In‑person first',
-                desc: 'Glasses, arrows, light prompts—ideas that nudge IRL moments.',
-              },
-            ].map((item) => (
-              <Card key={item.title}>
-                <CardHeader>
-                  <CardTitle>{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            <div className="space-y-3">
+              <h3 className="text-3xl font-semibold">Meet in real life.</h3>
+              <p className="text-muted-foreground">
+                People meeting or talking in person.
+              </p>
+              <div className="blocky overflow-hidden">
+                <Image
+                  src="/images/people-meeting.jpg"
+                  alt="People meeting"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+            <div className="space-y-3">
+              <h3 className="text-3xl font-semibold">
+                Personality‑first matching.
+              </h3>
+              <p className="text-muted-foreground">
+                App facilitates matching based on personality.
+              </p>
+              <div className="blocky overflow-hidden">
+                <Image
+                  src="/images/personality.jpg"
+                  alt="Personality"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+            <div className="space-y-3">
+              <h3 className="text-3xl font-semibold">Mutual, timed meetups.</h3>
+              <p className="text-muted-foreground">
+                Privacy‑first, no oversharing.
+              </p>
+              <div className="blocky overflow-hidden">
+                <Image
+                  src="/images/meetup.jpg"
+                  alt="Meetup"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" className="blocky">
+              <Link href="/waitlist">Join the waitlist</Link>
+            </Button>
           </div>
         </section>
 
