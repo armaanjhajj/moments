@@ -1,10 +1,10 @@
 // Kimba Chat — Supabase Edge Function
-// AI campus navigator powered by GPT-4o-mini.
+// AI campus navigator powered by Claude (Anthropic).
 // Never stores API keys on client. Always scoped to school_id.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY")!;
+const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY")!;
 
 interface ChatRequest {
   user_id: string;
@@ -69,29 +69,34 @@ Action cards (optional JSON in your response):
 - {"type": "room", "id": "<room_id>", "label": "Join [room name]"}
 - {"type": "user", "id": "<user_id>", "label": "View [user]'s profile"}`;
 
-  const messages = [
-    { role: "system", content: systemPrompt },
-    ...conversation_history.slice(-8),
-    { role: "user", content: message },
+  // Build messages for Claude (must alternate user/assistant, no "system" role in messages)
+  const claudeMessages = [
+    ...conversation_history.slice(-8).map((m) => ({
+      role: m.role === "assistant" ? "assistant" as const : "user" as const,
+      content: m.content,
+    })),
+    { role: "user" as const, content: message },
   ];
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        "x-api-key": ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages,
+        model: "claude-haiku-4-5-20251001",
+        system: systemPrompt,
+        messages: claudeMessages,
         max_tokens: 300,
-        temperature: 0.7,
       }),
     });
 
     const data = await response.json();
-    const content = data.choices?.[0]?.message?.content ?? "I'm not sure about that.";
+    const content =
+      data.content?.[0]?.text ?? "I'm not sure about that.";
 
     // Try to extract action card from response
     let action = null;
