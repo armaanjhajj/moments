@@ -1,17 +1,22 @@
-//
-//  MomentsApp.swift
-//  Moments
-//
-//  Created by Armaan Jhajj on 3/18/26.
-//
-
 import SwiftUI
 
 @main
 struct MomentsApp: App {
+    @StateObject private var authVM = AuthViewModel()
+    @StateObject private var schoolContext = SchoolContext()
+    @StateObject private var locationManager = LocationManager()
+    @StateObject private var realtimeManager = RealtimeManager()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(authVM)
+                .environmentObject(schoolContext)
+                .environmentObject(locationManager)
+                .environmentObject(realtimeManager)
+                .task {
+                    await authVM.restoreSession()
+                }
         }
     }
 }

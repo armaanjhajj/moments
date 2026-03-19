@@ -65,6 +65,7 @@
 			);
 			name = Moments;
 			packageProductDependencies = (
+				AA000002AAAA000000000002 /* Supabase */,
 			);
 			productName = Moments;
 			productReference = 77CF25972F6B5B4A00980AE3 /* Moments.app */;
@@ -98,6 +99,9 @@
 			productRefGroup = 77CF25982F6B5B4A00980AE3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
+			packageReferences = (
+				AA000001AAAA000000000001 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			targets = (
 				77CF25962F6B5B4A00980AE3 /* Moments */,
 			);
@@ -123,6 +127,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA000001AAAA000000000001 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA000002AAAA000000000002 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA000001AAAA000000000001 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCBuildConfiguration section */
 		77CF25A02F6B5B4B00980AE3 /* Debug */ = {
